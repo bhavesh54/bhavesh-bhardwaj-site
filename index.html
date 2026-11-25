@@ -11,6 +11,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0b1120;
@@ -25,11 +29,12 @@
 
     /* Navbar */
     header {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.92);
       border-bottom: 1px solid #1e293b;
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(8px);
     }
 
     .nav-container {
@@ -48,7 +53,7 @@
     }
 
     nav a {
-      margin-left: 24px;
+      margin-left: 22px;
       font-size: 0.95rem;
       color: #cbd5e1;
       transition: color 0.2s;
@@ -108,6 +113,8 @@
       font-weight: 600;
       font-size: 0.95rem;
       transition: all 0.2s;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-primary {
@@ -122,6 +129,7 @@
     .btn-outline {
       border: 1px solid #334155;
       color: #f1f5f9;
+      background: transparent;
     }
 
     .btn-outline:hover {
@@ -171,15 +179,84 @@
       color: #cbd5e1;
     }
 
-    /* Contact Section */
-    .contact-box {
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
       background: #1e293b;
-      padding: 32px;
+      padding: 24px;
       border-radius: 12px;
       border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #38bdf8;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tech-tags span {
+      background: #0f172a;
+      color: #38bdf8;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 24px;
+    }
+
+    .contact-info {
+      background: #1e293b;
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
     .contact-item span {
@@ -191,13 +268,59 @@
 
     .contact-item a,
     .contact-item p {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #f8fafc;
+      word-break: break-all;
     }
 
     .contact-item a:hover {
       color: #38bdf8;
+    }
+
+    .contact-form {
+      background: #1e293b;
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #f8fafc;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #38bdf8;
+    }
+
+    .form-status {
+      font-size: 0.9rem;
+      color: #4ade80;
+      display: none;
     }
 
     /* Footer */
@@ -209,12 +332,16 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
       .hero h1 {
         font-size: 2.2rem;
       }
       nav a {
-        margin-left: 14px;
+        margin-left: 12px;
+        font-size: 0.88rem;
       }
     }
   </style>
@@ -228,6 +355,7 @@
       <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -243,8 +371,8 @@
         modern web technologies, and solving real-world problems with code.
       </p>
       <div class="btn-group">
-        <a href="#contact" class="btn btn-primary">Contact Me</a>
-        <a href="#skills" class="btn btn-outline">View Skills</a>
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
 
@@ -272,27 +400,105 @@
       </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="section-subtitle">Some of the work and tools I have built</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              Responsive personal portfolio built from scratch on Ubuntu terminal and hosted live using GitHub Pages.
+            </p>
+            <div class="tech-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>GitHub Pages</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://bhavesh54.github.io/bhavesh-bhardwaj-site/" target="_blank">Live Demo</a>
+            <a href="https://github.com/bhavesh54/bhavesh-bhardwaj-site" target="_blank">Source Code</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>Linux System Monitor Script</h3>
+            <p>
+              A lightweight Bash utility for Ubuntu servers to track CPU usage, memory consumption, and disk alerts.
+            </p>
+            <div class="tech-tags">
+              <span>Ubuntu</span>
+              <span>Bash</span>
+              <span>Linux CLI</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bhavesh54" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>Task &amp; Notes CLI Manager</h3>
+            <p>
+              Command-line productivity tool written in Python to organize daily tasks and export summaries.
+            </p>
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>CLI</span>
+              <span>JSON</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bhavesh54" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
       <h2>Get In Touch</h2>
-      <p class="section-subtitle">Feel free to reach out for projects or opportunities</p>
-      <div class="contact-box">
-        <div class="contact-item">
-          <span>Email</span>
-          <a href="mailto:bhavesh@example.com">bhavesh@example.com</a>
+      <p class="section-subtitle">Have a project or question? Send me a message directly</p>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:bhavesh@example.com">bhavesh@example.com</a>
+          </div>
+          <div class="contact-item">
+            <span>GitHub</span>
+            <a href="https://github.com/bhavesh54" target="_blank">github.com/bhavesh54</a>
+          </div>
+          <div class="contact-item">
+            <span>LinkedIn</span>
+            <a href="https://linkedin.com/in/bhavesh-bhardwaj" target="_blank">linkedin.com/in/bhavesh-bhardwaj</a>
+          </div>
+          <div class="contact-item">
+            <span>Location</span>
+            <p>India</p>
+          </div>
         </div>
-        <div class="contact-item">
-          <span>GitHub</span>
-          <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
-        </div>
-        <div class="contact-item">
-          <span>LinkedIn</span>
-          <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a>
-        </div>
-        <div class="contact-item">
-          <span>Location</span>
-          <p>India</p>
-        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-status" id="formStatus">Opening your email app to send the message...</p>
+        </form>
       </div>
     </section>
   </main>
@@ -301,6 +507,31 @@
   <footer>
     <p>&copy; 2026 Bhavesh Bhardwaj. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Apni asli email yahan replace karein
+      const myEmail = 'bhavesh@example.com';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent('Portfolio Contact from ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+      );
+
+      const status = document.getElementById('formStatus');
+      status.style.display = 'block';
+
+      window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+    });
+  </script>
 
 </body>
 </html>
