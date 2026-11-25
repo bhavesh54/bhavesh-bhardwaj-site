@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavesh Bhardwaj | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b1120;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    nav a {
+      margin-left: 24px;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1e293b;
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      border: 1px solid #334155;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+    }
+
+    .btn-outline {
+      border: 1px solid #334155;
+      color: #f1f5f9;
+    }
+
+    .btn-outline:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    /* Section Headings */
+    section {
+      padding: 60px 0;
+      border-top: 1px solid #1e293b;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #f8fafc;
+    }
+
+    .section-subtitle {
+      color: #94a3b8;
+      margin-bottom: 32px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: #1e293b;
+      padding: 22px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+    }
+
+    .skill-card h3 {
+      font-size: 1.1rem;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background: #1e293b;
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+
+    .contact-item a,
+    .contact-item p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .contact-item a:hover {
+      color: #38bdf8;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid #1e293b;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      nav a {
+        margin-left: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Bhavesh Bhardwaj</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <div id="about" class="hero">
+      <div class="badge">Available for Work &amp; Collaboration</div>
+      <h1>Hi, I'm Bhavesh Bhardwaj</h1>
+      <p>
+        I build clean, fast, and reliable web solutions. Passionate about Linux,
+        modern web technologies, and solving real-world problems with code.
+      </p>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+        <a href="#skills" class="btn btn-outline">View Skills</a>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>My Skills</h2>
+      <p class="section-subtitle">Technologies and tools I work with</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend Development</h3>
+          <p>HTML5, CSS3, JavaScript, Responsive Web Design</p>
+        </div>
+        <div class="skill-card">
+          <h3>Linux &amp; Server</h3>
+          <p>Ubuntu Terminal, Bash Scripting, Server Management, SSH</p>
+        </div>
+        <div class="skill-card">
+          <h3>Version Control &amp; Deployment</h3>
+          <p>Git, GitHub, GitHub Pages, Vercel, Netlify</p>
+        </div>
+        <div class="skill-card">
+          <h3>Programming &amp; Tools</h3>
+          <p>Python, VS Code, REST APIs, Debugging</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <p class="section-subtitle">Feel free to reach out for projects or opportunities</p>
+      <div class="contact-box">
+        <div class="contact-item">
+          <span>Email</span>
+          <a href="mailto:bhavesh@example.com">bhavesh@example.com</a>
+        </div>
+        <div class="contact-item">
+          <span>GitHub</span>
+          <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+        </div>
+        <div class="contact-item">
+          <span>LinkedIn</span>
+          <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a>
+        </div>
+        <div class="contact-item">
+          <span>Location</span>
+          <p>India</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Bhavesh Bhardwaj. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
